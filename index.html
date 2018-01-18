@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="./bootstrap.min.css"/>
+		
+		<meta name="generator" content="BBEdit">
+		<script type="text/javascript"
+		   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js">   
+		</script>
+		<script src="./d3.min.js"> </script>
+		<script src="./jquery-3.2.1.min.js"> </script>
+		<script src="./bootstrap.min.js"> </script>
+		<script src="./d3.rebind.js"></script>
+		<style>
+		h1 { font-weight: bold; }
+		h3 { font-weight: bold; }
+		h4 { font-weight: bold; font-style: italic; }
+		</style>
+	</head>
+	
+	<body>	
+		<script src="./tableFunctions.js"></script>
+		<script src="./neuralNetworkFunctions.js"></script>
+		
+		<script>
+			//Inputs and configuration
+			
+			//SVG drawing size
+			var wd = 500;
+			var ht = 400;
+			
+			var x = d3.scaleLinear().domain([-2, 10])
+									.range([0, wd]);
+			var y = d3.scaleLinear().domain([5,-5])
+									.range([0, ht]);
+									
+			function translate(xIn,yIn){
+				return "translate(" + xIn + "," + yIn + ")";
+			}
+			function translateRotate(xIn,yIn,rIn,wdth,hgt){
+				return "translate(" + xIn + "," + yIn + ")" + "rotate(" + rIn + "," + wdth + "," + hgt + ")";;
+			}
+			
+			
+			function calcWidth(w){
+				return Math.abs(x(w)-x(0));
+			}
+			function calcHeight(h){
+				return Math.abs(y(h)-y(0));
+			}
+			
+			MathJax.Hub.Config({
+			  skipStartupTypeset:true
+			});
+
+			
+
+			MathJax.Hub.Config({
+			  jax: ["input/TeX","output/SVG", "output/PreviewHTML"],
+			  extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+			  TeX: {
+				extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+			  }
+			});	
+
+			MathJax.Hub.Queue(
+
+			  ["setRenderer",MathJax.Hub,"CommonHTML"],
+			  ["Typeset",MathJax.Hub,"ANN_Equation"],
+			  ["Typeset",MathJax.Hub,"ANN_Equation_ws"],
+			  ["Typeset",MathJax.Hub,"drEqn"],
+			  
+			);
+			
+		</script>
+		
+
+		<div class="container"> 
+		<div class = "row"> <div class="col-md-6 col-md-offset-3">
+			<h1>Artificial Neural Networks</h1>
+			<br>
+			
+			<h3>AN EXAMPLE NEURAL NETWORK</h3>
+			<p>To illustrate what an artificial neural network is and how it works, let's walk through a simple example.</p> 
+			<p>Our neural network will predict when people are sick from their temperature and heart rate data. A simple example of what that neural network could look like is below. The point of showing this equation now is to highlight that there are a few parameters, w's, in the equation (in this example, we have 2 nodes in input layer, 2 nodes in hidden layer, 1 node in output layer).</p>
+			<div id='ANN_Equation_ws'>
+				<p>\[ \Large{ S_{pred} = \frac{1}{1+e^{ - \left(\frac{\color{red} w_{\color{red} 7} }{1 + e^{-\left(T\cdot \color{red} w_{\color{red} 1}+ {HR}\cdot  \color{red} w_{\color{red} 2} + \color{red} w_{\color{red} 3}\right)}} +\frac{\color{red} w_{\color{red} 8}}{1 + e^{-\left(T\cdot \color{red} w_{\color{red} 4}+ {HR}\cdot \color{red} w_{\color{red} 5} + \color{red} w_{\color{red} 6} \right)}} + \color{red} w_{\color{red} 9} \right) } }  }  \] </p>
+			</div>
+
+			<p>For this network to be useful, we need the predictions to be accurate. To do this, we need to find the best values for the w terms in the equation. The w terms are like settings, when we change the w's, we make our predictions better or worse.</p>
+
+			<h3>TRAINING A NEURAL NETWORK TO MAKE BETTER PREDICTIONS</h3>
+			<p>Unfortunately, when we are just starting out, we have no idea what the settings should be. Our best option is to start by guessing values for the ws. In this example, we will start by guessing that every w setting is equal to 1 (w1 = w2 = w3 = w4 = w5 = w6 = w7 = w8 = w9 = 1).</p>
+			
+			<h4>The network's first predictions</h4>
+			<p>Now, let's see if the w values work well. We start with the dataset below which includes heart rate, temperature and sickness state. To begin, recall that we guessed all w's = 1. We plug those w values into the equation. Then, we iterate over each row in the data set (which represents a patient), plugging temperature and heart rate into the equation. Finally, we run the calculation, and we get a prediciton of patient sickness (0 = not sick, 1 = sick).</p> 
+			<div id='RobotDoctorDiv'>
+				<p><strong>[Click the gears to read in patient data and predict if the patient is sick or not.]</strong></p>
+				<script src="./robotdoctor.js"></script>
+			</div>
+			
+		</div></div>
+		</div>
+
+	</body>
+	
+</html>
