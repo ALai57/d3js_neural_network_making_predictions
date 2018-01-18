@@ -153,45 +153,46 @@ var HR_2;
 function mathInit_Robot(){
 	
 	
-	// S variable
-	S_up   = d3.select('#MJXc-Node-266').selectAll('.mjx-char');
-	S_down = d3.select('#MJXc-Node-267').selectAll('.mjx-char').text('pred');
+	// S variable 164-266
+	S_up   = d3.select('#MJXc-Node-164').selectAll('.mjx-char');
+	S_down = d3.select('#MJXc-Node-167').selectAll('.mjx-char').text('pred');
 	// W Variables
-	w1_up   = d3.select('#MJXc-Node-305').selectAll('.mjx-char');
-	w1_down = d3.select('#MJXc-Node-306').selectAll('.mjx-char');
-	w2_up   = d3.select('#MJXc-Node-314').selectAll('.mjx-char');
-	w2_down = d3.select('#MJXc-Node-315').selectAll('.mjx-char');
-	w3_up   = d3.select('#MJXc-Node-318').selectAll('.mjx-char');
-	w3_down = d3.select('#MJXc-Node-319').selectAll('.mjx-char');
-	w4_up   = d3.select('#MJXc-Node-340').selectAll('.mjx-char');
-	w4_down = d3.select('#MJXc-Node-341').selectAll('.mjx-char');
-	w5_up   = d3.select('#MJXc-Node-349').selectAll('.mjx-char');
-	w5_down = d3.select('#MJXc-Node-350').selectAll('.mjx-char');
-	w6_up   = d3.select('#MJXc-Node-353').selectAll('.mjx-char');
-	w6_down = d3.select('#MJXc-Node-354').selectAll('.mjx-char');
-	w7_up   = d3.select('#MJXc-Node-289').selectAll('.mjx-char');  
-	w7_down = d3.select('#MJXc-Node-290').selectAll('.mjx-char');	
-	w8_up   = d3.select('#MJXc-Node-324').selectAll('.mjx-char');
-	w8_down = d3.select('#MJXc-Node-325').selectAll('.mjx-char');
-	w9_up   = d3.select('#MJXc-Node-358').selectAll('.mjx-char');
-	w9_down = d3.select('#MJXc-Node-359').selectAll('.mjx-char');
+	w1_up   = d3.select('#MJXc-Node-203').selectAll('.mjx-char');
+	w1_down = d3.select('#MJXc-Node-204').selectAll('.mjx-char');
+	w2_up   = d3.select('#MJXc-Node-212').selectAll('.mjx-char');
+	w2_down = d3.select('#MJXc-Node-213').selectAll('.mjx-char');
+	w3_up   = d3.select('#MJXc-Node-216').selectAll('.mjx-char');
+	w3_down = d3.select('#MJXc-Node-217').selectAll('.mjx-char');
+	w4_up   = d3.select('#MJXc-Node-238').selectAll('.mjx-char');
+	w4_down = d3.select('#MJXc-Node-239').selectAll('.mjx-char');
+	w5_up   = d3.select('#MJXc-Node-247').selectAll('.mjx-char');
+	w5_down = d3.select('#MJXc-Node-248').selectAll('.mjx-char');
+	w6_up   = d3.select('#MJXc-Node-251').selectAll('.mjx-char');
+	w6_down = d3.select('#MJXc-Node-252').selectAll('.mjx-char');
+	w7_up   = d3.select('#MJXc-Node-187').selectAll('.mjx-char');  
+	w7_down = d3.select('#MJXc-Node-188').selectAll('.mjx-char');	
+	w8_up   = d3.select('#MJXc-Node-222').selectAll('.mjx-char');
+	w8_down = d3.select('#MJXc-Node-223').selectAll('.mjx-char');
+	w9_up   = d3.select('#MJXc-Node-256').selectAll('.mjx-char');
+	w9_down = d3.select('#MJXc-Node-257').selectAll('.mjx-char');
 	// T and HR variables
-	T_1  = d3.select('#MJXc-Node-302').selectAll('.mjx-char');
-	T_2  = d3.select('#MJXc-Node-337').selectAll('.mjx-char');
-	HR_1 = d3.select('#MJXc-Node-308').selectAll('.mjx-char').text('HR');
-	HR_2 = d3.select('#MJXc-Node-343').selectAll('.mjx-char').text('HR');
+	T_1  = d3.select('#MJXc-Node-200').selectAll('.mjx-char');
+	T_2  = d3.select('#MJXc-Node-235').selectAll('.mjx-char');
+	HR_1 = d3.select('#MJXc-Node-208').selectAll('.mjx-char').text('HR');
+	HR_2 = d3.select('#MJXc-Node-243').selectAll('.mjx-char').text('HR');
 	
 	
-	// Remove 'r','e','d' from 'pred' 69-72, +42
-	d3.select('#MJXc-Node-270').selectAll('.mjx-char').remove();
-	d3.select('#MJXc-Node-271').selectAll('.mjx-char').remove();
-	d3.select('#MJXc-Node-272').selectAll('.mjx-char').remove();
+	// Remove 'r','e','d' from 'pred' 
+	d3.select('#MJXc-Node-168').selectAll('.mjx-char').remove();
+	d3.select('#MJXc-Node-169').selectAll('.mjx-char').remove();
+	d3.select('#MJXc-Node-170').selectAll('.mjx-char').remove();
 	
 	// Remove 'R' from 'HR'
-	d3.select('#MJXc-Node-311').selectAll('.mjx-char').remove();
-	d3.select('#MJXc-Node-346').selectAll('.mjx-char').remove();
+	d3.select('#MJXc-Node-209').selectAll('.mjx-char').remove();
+	d3.select('#MJXc-Node-244').selectAll('.mjx-char').remove();
 	
-	d3.select('#MJXc-Node-265').style('width','3em');
+	// Add spacing
+	d3.select('#MJXc-Node-163').style('width','3em');
 	d3.select('#MJXc-Node-287').selectAll(function(){return this.childNodes})
 		.filter(function(d,i){return i === 0;})
 		.style('width','12.0em');  // +4
